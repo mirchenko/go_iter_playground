@@ -1,0 +1,23 @@
+# Generated .gitignore file for: Go
+# Created with FOSSA's DevOps Tools
+
+# Go
+# Add Go-specific ignores here
+
+# Common
+.DS_Store
+Thumbs.db
+*.log
+*.bak
+*.tmp
+*.swp
+*~
+
+# IDE and editor generated files
+.idea/
+*.sublime-*
+
+# Local environment files
+.env
+.env.local
+.env.*.local
