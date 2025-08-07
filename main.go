@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-const Window = 10000
+const Size = 10000
 
 type Entity struct {
 	ID    int64
@@ -24,7 +24,7 @@ func getEntities(db *gorm.DB) iter.Seq[Entity] {
 		count := 1
 
 		for count != 0 {
-			entities, err := gorm.G[Entity](db).Limit(Window).Offset(offset).Order("id asc").Find(context.Background())
+			entities, err := gorm.G[Entity](db).Limit(Size).Offset(offset).Order("id asc").Find(context.Background())
 			if err != nil {
 				return
 			}
@@ -36,7 +36,7 @@ func getEntities(db *gorm.DB) iter.Seq[Entity] {
 			}
 
 			count = len(entities)
-			offset += Window
+			offset += Size
 			time.Sleep(time.Second * 1)
 		}
 	}
