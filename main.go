@@ -43,7 +43,7 @@ func getEntities(db *gorm.DB) iter.Seq[Entity] {
 }
 
 func main() {
-	dsn := "host=localhost user=playground_user password=playground_password dbname=playground_db port=5434 sslmode=disable"
+	dsn := "host=localhost user=playground_user password=playground_password dbname=playground_db port=5432 sslmode=disable"
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		panic(err)

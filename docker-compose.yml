@@ -1,0 +1,22 @@
+services:
+  postgresdb:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: playground_user
+      POSTGRES_PASSWORD: playground_password
+      POSTGRES_DB: playground_db
+    volumes:
+      - playground-postgres-data:/var/lib/postgresql/data
+    restart: unless-stopped
+    networks:
+      - playground
+
+volumes:
+  playground-postgres-data:
+
+networks:
+  playground:
+
+
